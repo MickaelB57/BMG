@@ -16,7 +16,7 @@
     <?php
     // affichage des erreurs   
     foreach ($tabErreurs as $erreur) {
-        echo '<span class="dark serreur">'.$erreur.'</span>';
+        echo '<span class="dark erreur">'.$erreur.'</span>';
     }
     ?>
 </div>

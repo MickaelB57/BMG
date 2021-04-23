@@ -73,7 +73,7 @@ body {
     font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
     font-size: 0.8em;
 }
-/** Dark CSS */
+/** Dark CSS
 .dark {
     background-color: #111;
     color: #fff;
@@ -134,6 +134,7 @@ body {
 .dark .erreur{
     background: #111;
 }
+*/
 nav {	
     color: rgb(96, 96, 96);
     float: left;

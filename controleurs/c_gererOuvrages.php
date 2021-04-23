@@ -126,19 +126,19 @@ switch ($action) {
                         } else {
                             // une ou plusieurs valeurs n'ont pas été saisies
                             if (empty($titre)) {
-                                $tabErreurs["Titre"] = "Le Titre doit être renseigné !";
+                                $tabErreurs["Titre"] = "Le Titre doit être renseigné ! ";
                             }
                             if (empty($salle)) {
-                                $tabErreurs["Salle"] = "La Salle doit être renseigné !";
+                                $tabErreurs["Salle"] = "La Salle doit être renseigné ! ";
                             }
                             if (empty($rayon)) {
-                                $tabErreurs["Rayon"] = "Le Rayon doit être renseigné !";
+                                $tabErreurs["Rayon"] = "Le Rayon doit être renseigné ! ";
                             }
                             if (empty($genre)) {
-                                $tabErreurs["Genre"] = "Le Genre doit être renseigné !";
+                                $tabErreurs["Genre"] = "Le Genre doit être renseigné ! ";
                             }
                             if (empty($Acquisition)) {
-                                $tabErreurs["Acquisition"] = "L'Acquisition doit être renseigné !";
+                                $tabErreurs["Acquisition"] = "L'Acquisition doit être précisé (date) ";
                             }
 
 
@@ -282,19 +282,21 @@ switch ($action) {
                 $tabErreurs["Erreur"] = "Aucun ouvrage n'a été transmis pour suppression !";
                 $hasErrors = true;
             }
-
-            if ($leOuvrage->getlisteNomsAuteurs() != null) {
-                $tabErreurs["Erreur"] = "un auteur est déjà référencé pour cet ouvrage";
+            if ($leOuvrage->getlisteNomsAuteurs() != null && $leOuvrage->getlisteNomsAuteurs() != "" && $leOuvrage->getlisteNomsAuteurs() != 0 && $leOuvrage->getlisteNomsAuteurs() != "Indéterminé") {
+                $tabErreurs["Erreur"] = "Un auteur est déjà référencé pour cet ouvrage";
                 $hasErrors = true;
             }
 
             if (!$hasErrors) {
                 $res = OuvrageDal::delOuvrage($leOuvrage->getNoOuvrage());
-
                 if ($res > 0) {
                     $msg = "l'Ouvrage a été supprimé";
                     include "vues/_v_afficherMessage.php";
                     $lesOuvrages = OuvrageDal::loadOuvrageByID(1);
+                } else
+                {
+                    $msg = "Une erreur est survenue";
+                    include "vues/_v_afficherMessage.php";
                 }
             }
 

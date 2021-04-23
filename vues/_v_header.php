@@ -30,7 +30,7 @@
                 ?>
             </div>  
 
-            <button id="darkTrigger" class="button">Activer le thème sombre</button>
+       
            
         </header>
         
