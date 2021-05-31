@@ -228,9 +228,6 @@ switch ($action) {
             if ($res) {
                 $msg = "le genre a était supprimer";
                 include "vues/_v_afficherMessage.php";
-                $lesGenres = GenreDal::loadGenres(1);
-                $nbGenres = count($lesGenres);
-                include 'vues/v_listeGenres.php';
             } else {
                 $tabErreurs[] = "une erreur s'est produite dans l'opération de suppresion";
                 $hasErrors = true;
