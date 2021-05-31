@@ -137,7 +137,7 @@ class OuvrageDal
     public static function setOuvrage($unOuvrage)
     {
         $cnx = new PdoDao();
-        $qry = "UPDATE ouvrage SET titre ='". $unOuvrage->getTitre() ."', Salle='".$unOuvrage->getSalle() ."', Rayon='".$unOuvrage->getRayon() ."', code_genre='".$unOuvrage->getLeGenre() ."', date_Acquisition='".$unOuvrage->getAcquisition() ."' where no_ouvrage = '". $unOuvrage->getNoOuvrage() ."'";
+        $qry = 'UPDATE ouvrage SET titre ="'. $unOuvrage->getTitre() .'", Salle="'.$unOuvrage->getSalle() .'", Rayon="'.$unOuvrage->getRayon() .'", code_genre="'.$unOuvrage->getLeGenre() .'", date_Acquisition="'.$unOuvrage->getAcquisition() .'" where no_ouvrage = "'. $unOuvrage->getNoOuvrage() .'"';
         $res = $cnx->execSQL($qry,array($unOuvrage->getNoOuvrage(),$unOuvrage->getTitre(),$unOuvrage->getSalle(),$unOuvrage->getRayon(),$unOuvrage->getLeGenre(),$unOuvrage->getAcquisition()
         ));
         if (is_a($res, 'PDOException')){
